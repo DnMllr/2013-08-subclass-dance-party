@@ -29,3 +29,8 @@ Dancer.prototype.setPosition = function(top, left){
   };
   this.$node.css(styleSettings);
 };
+
+Dancer.prototype.sendPosition = function(distance,  angle) {
+  this.distance = distance;
+  this.angle = angle;
+}
