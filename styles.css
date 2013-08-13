@@ -25,3 +25,56 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+/*.circles {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-color: red;
+  height: 100%;
+  width: 100%;
+  background: #FFF;
+  border: 1px solid #1a1a1a;
+  border-radius: 50%;
+  padding: 5px;
+ -webkit-box-sizing: border-box;
+}
+
+div #one {
+  height: 110%;
+  width: 110%;
+  margin: 1%;
+}
+
+div #two {
+  height: 90%;
+  width: 90%;
+}
+
+div #three {
+  height: 80%;
+  width: 80%;
+}
+
+div #four {
+  height: 70%;
+  width: 70%;
+}
+
+div #five {
+  height: 60%;
+  width: 60%;
+}
+
+div #six {
+  height: 50%;
+  width: 50%;
+}
+
+div #seven {
+  height: 40%;
+  width: 40%;
+}*/

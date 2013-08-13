@@ -4,8 +4,10 @@
     <title>Object Dance Party</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <script src="lib/jquery.js"></script>
+    <script src="lib/jquery-mouseangle.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="lib/jquery.transit.js"></script>
   </head>
   <body>
 
@@ -13,6 +15,8 @@
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a dancer</a>
     </div>
+
+
 
     <script>
       $(document).ready(function(){
@@ -40,10 +44,38 @@
           var dancer = new dancerMakerFunction(
             $("body").height() * Math.random(),
             $("body").width() * Math.random(),
-            Math.random() * 1000
+            Math.random() * 100
           );
 
           $('body').append(dancer.$node);
+        });
+
+        var calculateDistance = function(element, mouseX, mouseY) {
+          return Math.floor(Math.sqrt(Math.pow(mouseX - (element.offset().left+(element.width()/2)), 2) + Math.pow(mouseY - (element.offset().top+(element.height()/2)), 2)));
+        }
+
+        var calculateAngle= function(element, mouseX, mouseY) {
+          var width =  mouseX - (element.offset().left+(element.width()/2));
+          var height = mouseY - (element.offset().top+(element.height()/2));
+          return Math.atan2(height, width);
+        }
+
+        $(document).mousemove(function(e) {  
+          $('.dancer').each(function(i, obj) {
+            for (var i = 0 ; i < $(window).dancers.length ; i++) {
+              var distance = calculateDistance($(window).dancers[i], e.pageX, e.pageY);
+              var angle  = calculateAngle($(window).dancers[i], e.pageX, e.pageY);
+              $(window).dancers[i].
+            }
+
+            // var distance = calculateDistance($(this), e.pageX, e.pageY);
+            // var angle  = calculateAngle($(this), e.pageX, e.pageY);
+            // console.log("distance is ", distance, " and angle is ", angle);
+            // $(this).animate({top: "+=" + (Math.sin(angle)*Math.pow((distance/10),2)),  left: "+=" + (Math.cos(angle)*Math.pow((distance/10),2))});
+            // //console.log("top is: ", (Math.sin(angle)*Math.pow((distance/10),2)), "  bottom is: ", (Math.cos(angle)*Math.pow((distance/10),2)))
+            // // $(this).animate({"-webkit-transform": "rotateY("+Math.sin(angle)*distance+")"}, 500);
+          });
+
         });
       });
     </script>
