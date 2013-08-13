@@ -1,13 +1,13 @@
-var ExploderDancer = function(top, left, timeBetweenSteps){
+var FollowDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
-  this.$node.addClass("follow");
+  this.$node.addClass("exploder");
 };
 
-ExploderDancer.prototype = Object.create(Dancer.prototype);
-ExploderDancer.prototype.constructor = ExploderDancer;
+FollowDancer.prototype = Object.create(Dancer.prototype);
+FollowDancer.prototype.constructor = FollowDancer;
 
 
-ExploderDancer.prototype.step = function(){
+FollowDancer.prototype.step = function(){
   // call the old version of step at the beginning of any call to this new version of step
   Dancer.prototype.step.call(this);
 
@@ -21,12 +21,12 @@ ExploderDancer.prototype.step = function(){
   this.applyForce();
 };
 
-ExploderDancer.prototype.calculateForce = function() {
+FollowDancer.prototype.calculateForce = function() {
   this.deltaX = Math.cos(this.angle) * (this.distance);
   this.deltaY = Math.sin(this.angle) * (this.distance);
 }
 
-ExploderDancer.prototype.applyForce = function() {
+FollowDancer.prototype.applyForce = function() {
   this.left = this.deltaX + parseInt(this.$node.css("left"), 10);
   this.top = this.deltaY + parseInt(this.$node.css("top"), 10);
 }

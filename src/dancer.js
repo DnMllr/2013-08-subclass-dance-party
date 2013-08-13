@@ -2,7 +2,6 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.timeBetweenSteps= timeBetweenSteps || 1000;
   this.$node = $('<span class="dancer"></span>');
   this.test = "test";
-  debugger;
   this.step();
   this.distance = 0;
   this.deltaX = 0;

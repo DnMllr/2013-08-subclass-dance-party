@@ -8,6 +8,7 @@
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
     <script src="src/FollowDancer.js"></script>
+    <script src="src/ExploderDancer.js"></script>
     <script src="src/fancyDancer.js"></script>
     <script src="src/soulTrainDancer.js"></script>
     <script src="lib/jquery.transit.js"></script>
@@ -19,8 +20,9 @@
       <span class="title">object dance party</span>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="FollowDancer">add a following dancer</a>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a blinky dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="FancyDancer">add a dancer</a>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="SoulTrainDancer">add a dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="FancyDancer">add a fancy dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="SoulTrainDancer">add a soul Train dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="ExploderDancer">add an exploding dancer</a>
       <a href="#" class="lineUp">Line em up!</a>
     </div>
 
@@ -70,6 +72,8 @@
             var distance = calculateDistance(window.dancers[i].$node, e.pageX, e.pageY);
             var angle  = calculateAngle(window.dancers[i].$node, e.pageX, e.pageY);
             window.dancers[i].sendPosition(distance, angle);
+            window.dancers[i].calculateForce();
+            window.dancers[i].applyForce();
           }
         });
 

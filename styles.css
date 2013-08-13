@@ -33,13 +33,19 @@ body, a:link, a:visited, a:active{
 }
 
 .follow{
-  border:10px solid black;
+  border:10px solid white;
   border-radius:10px;
   position:absolute;
 }
 
 .soultrain{
   border:10px solid blue;
+  border-radius:10px;
+  position:absolute;
+}
+
+.exploder{
+  border:10px solid orange;
   border-radius:10px;
   position:absolute;
 }
