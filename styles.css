@@ -26,6 +26,24 @@ body, a:link, a:visited, a:active{
   position:absolute;
 }
 
+.fancy{
+  border:10px solid green;
+  border-radius:10px;
+  position:absolute;
+}
+
+.follow{
+  border:10px solid black;
+  border-radius:10px;
+  position:absolute;
+}
+
+.soultrain{
+  border:10px solid blue;
+  border-radius:10px;
+  position:absolute;
+}
+
 /*.circles {
   position: absolute;
   top: 0;
