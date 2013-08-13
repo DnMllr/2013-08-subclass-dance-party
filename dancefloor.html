@@ -7,13 +7,18 @@
     <script src="lib/jquery-mouseangle.js"></script>
     <script src="src/dancer.js"></script>
     <script src="src/blinkyDancer.js"></script>
+    <script src="src/fancyDancer.js"></script>
+    <script src="src/soulTrainDancer.js"></script>
     <script src="lib/jquery.transit.js"></script>
+    <script src="lib/jquery.easing.1.3.js"></script>
   </head>
   <body>
 
     <div class="topbar">
       <span class="title">object dance party</span>
-      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="BlinkyDancer">add a following dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="FancyDancer">add a dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="SoulTrainDancer">add a dancer</a>
     </div>
 
 
@@ -44,7 +49,7 @@
           var dancer = new dancerMakerFunction(
             $("body").height() * Math.random(),
             $("body").width() * Math.random(),
-            Math.random() * 100
+            Math.random() * 500
           );
 
           $('body').append(dancer.$node);
@@ -62,23 +67,23 @@
           return Math.atan2(height, width);
         }
 
-        $(document).mousemove(function(e) {  
-          $('.dancer').each(function(i, obj) {
-            for (var i = 0 ; i < window.dancers.length ; i++) {
-              var distance = calculateDistance(window.dancers[i].$node, e.pageX, e.pageY);
-              var angle  = calculateAngle(window.dancers[i].$node, e.pageX, e.pageY);
-              window.dancers[i].sendPosition(distance, angle);
-            }
+        var sender = setInterval($(document).trigger("mousemove"), 500);
 
-            // var distance = calculateDistance($(this), e.pageX, e.pageY);
-            // var angle  = calculateAngle($(this), e.pageX, e.pageY);
-            // console.log("distance is ", distance, " and angle is ", angle);
-            // $(this).animate({top: "+=" + (Math.sin(angle)*Math.pow((distance/10),2)),  left: "+=" + (Math.cos(angle)*Math.pow((distance/10),2))});
-            // //console.log("top is: ", (Math.sin(angle)*Math.pow((distance/10),2)), "  bottom is: ", (Math.cos(angle)*Math.pow((distance/10),2)))
-            // // $(this).animate({"-webkit-transform": "rotateY("+Math.sin(angle)*distance+")"}, 500);
-          });
-
+        $(document).mousemove(function(e) { 
+          for (var i = 0 ; i < window.dancers.length ; i++) {
+            var distance = calculateDistance(window.dancers[i].$node, e.pageX, e.pageY);
+            var angle  = calculateAngle(window.dancers[i].$node, e.pageX, e.pageY);
+            window.dancers[i].sendPosition(distance, angle);
+          }
         });
+
+        $(".lineUp").click(function() {
+          for (var i = 0 ; i < window.dancers.length ; i++) {
+            window.dancers[i].lineUp();
+          }
+        })
+
+
       });
     </script>
 

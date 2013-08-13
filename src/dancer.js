@@ -6,6 +6,8 @@ var Dancer = function(top, left, timeBetweenSteps){
   this.test = "test";
   this.step();
   this.distance = 0;
+  this.deltaX = 0;
+  this.deltaY = 0;
   // now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
   // this one sets the position to some random default point within the body
   this.setPosition(top, left);
@@ -34,3 +36,10 @@ Dancer.prototype.sendPosition = function(distance,  angle) {
   this.distance = distance;
   this.angle = angle;
 }
+/*
+Dancer.prototype.lineUp = function() {
+  var styleSettings = {
+    //left: 50
+  };
+  this.$node.css(styleSettings)
+}*/
