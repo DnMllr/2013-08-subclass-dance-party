@@ -63,19 +63,11 @@
         }
 
         $(document).mousemove(function(e) {  
-          $('.dancer').each(function(i, obj) {
             for (var i = 0 ; i < window.dancers.length ; i++) {
               var distance = calculateDistance(window.dancers[i].$node, e.pageX, e.pageY);
               var angle  = calculateAngle(window.dancers[i].$node, e.pageX, e.pageY);
               window.dancers[i].sendPosition(distance, angle);
             }
-
-            // var distance = calculateDistance($(this), e.pageX, e.pageY);
-            // var angle  = calculateAngle($(this), e.pageX, e.pageY);
-            // console.log("distance is ", distance, " and angle is ", angle);
-            // $(this).animate({top: "+=" + (Math.sin(angle)*Math.pow((distance/10),2)),  left: "+=" + (Math.cos(angle)*Math.pow((distance/10),2))});
-            // //console.log("top is: ", (Math.sin(angle)*Math.pow((distance/10),2)), "  bottom is: ", (Math.cos(angle)*Math.pow((distance/10),2)))
-            // // $(this).animate({"-webkit-transform": "rotateY("+Math.sin(angle)*distance+")"}, 500);
           });
 
         });
